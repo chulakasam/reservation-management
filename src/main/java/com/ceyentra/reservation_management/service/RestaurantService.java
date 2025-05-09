@@ -13,4 +13,6 @@ public interface RestaurantService {
     RestaurantDTO getSpecificRestaurant(int restaurantId);
 
     void deleteRestaurant(int restaurantId);
+
+    void updateRestaurant(RestaurantDTO  restaurantDTO,int restaurantId);
 }

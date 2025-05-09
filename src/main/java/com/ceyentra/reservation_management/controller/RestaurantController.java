@@ -37,5 +37,9 @@ public class RestaurantController {
        restaurantService.deleteRestaurant(restaurant_id);
     }
 
+    @PutMapping("/update/{restaurant_id}")
+    public void updateRestaurant(@PathVariable("restaurant_id") int restaurant_id, @RequestBody RestaurantDTO restaurantDTO) {
+        restaurantService.updateRestaurant(restaurantDTO,restaurant_id);
+    }
 
 }

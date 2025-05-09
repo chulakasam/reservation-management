@@ -47,4 +47,21 @@ public class RestaurantServiceImpl implements RestaurantService {
             restaurantDAO.deleteById(restaurantId);
         }
     }
+
+    @Override
+    public void updateRestaurant(RestaurantDTO restaurantDTO,int restaurantId) {
+        Optional<Restaurant> selected_restaurant = restaurantDAO.findById(restaurantId);
+        if(selected_restaurant.isPresent()){
+            selected_restaurant.get().setName(restaurantDTO.getName());
+            selected_restaurant.get().setAddress(restaurantDTO.getAddress());
+            selected_restaurant.get().setPhone_number(restaurantDTO.getPhone_number());
+            selected_restaurant.get().setCuisine_type(restaurantDTO.getCuisine_type());
+            selected_restaurant.get().setOpening_hours(restaurantDTO.getOpening_hours());
+            selected_restaurant.get().setClosing_hours(restaurantDTO.getClosing_hours());
+            selected_restaurant.get().setCapacity(restaurantDTO.getCapacity());
+            selected_restaurant.get().setDescription(restaurantDTO.getDescription());
+            selected_restaurant.get().setImage_url(restaurantDTO.getImage_url());
+            restaurantDAO.save(selected_restaurant.get());
+        }
+    }
 }
