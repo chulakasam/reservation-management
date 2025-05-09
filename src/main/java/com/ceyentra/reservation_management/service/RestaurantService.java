@@ -11,4 +11,6 @@ public interface RestaurantService {
     List<RestaurantDTO> getAllRestaurants();
 
     RestaurantDTO getSpecificRestaurant(int restaurantId);
+
+    void deleteRestaurant(int restaurantId);
 }

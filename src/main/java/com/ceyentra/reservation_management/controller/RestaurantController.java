@@ -31,4 +31,11 @@ public class RestaurantController {
     public RestaurantDTO getRestaurant(@PathVariable("restaurant_id") int restaurant_id) {
         return restaurantService.getSpecificRestaurant(restaurant_id);
     }
+
+    @DeleteMapping("/delete/{restaurant_id}")
+    public void deleteRestaurant(@PathVariable("restaurant_id") int restaurant_id) {
+       restaurantService.deleteRestaurant(restaurant_id);
+    }
+
+
 }

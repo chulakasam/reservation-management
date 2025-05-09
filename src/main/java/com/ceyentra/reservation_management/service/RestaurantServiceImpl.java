@@ -38,7 +38,13 @@ public class RestaurantServiceImpl implements RestaurantService {
     public RestaurantDTO getSpecificRestaurant(int restaurantId) {
         Optional<Restaurant> specific_restaurant = restaurantDAO.findById(restaurantId);
         return mapping.toRestaurantDTO(specific_restaurant.get());
+    }
 
-
+    @Override
+    public void deleteRestaurant(int restaurantId) {
+        Optional<Restaurant> selected_restaurant = restaurantDAO.findById(restaurantId);
+        if(selected_restaurant.isPresent()){
+            restaurantDAO.deleteById(restaurantId);
+        }
     }
 }
