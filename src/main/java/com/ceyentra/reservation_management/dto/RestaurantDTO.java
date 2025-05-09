@@ -23,8 +23,17 @@ public class RestaurantDTO {
     private Time closing_hours;
 
     private int capacity;
+    private String description;
 
     private String image_url;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getRestaurant_id() {
         return restaurant_id;

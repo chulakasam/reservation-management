@@ -18,7 +18,7 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public void saveRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
         restaurantService.saveRestaurant(restaurantDTO);
     }

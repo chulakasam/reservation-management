@@ -10,9 +10,10 @@ import java.sql.Time;
 @Table(name = "restaurant")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RestaurantEntity {
+public class Restaurant {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "restaurant_id")
     private int restaurant_id;
     @Column(name = "name")
     private String name;
@@ -28,8 +29,18 @@ public class RestaurantEntity {
     private Time closing_hours;
     @Column(name = "capacity")
     private int capacity;
+    @Column(name = "description")
+    private String description;
     @Column(name = "image_url")
     private String image_url;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getRestaurant_id() {
         return restaurant_id;
