@@ -7,4 +7,6 @@ import java.util.List;
 public interface RestaurantService {
     void saveRestaurant(RestaurantDTO  restaurantDTO);
 
+
+    List<RestaurantDTO> getAllRestaurants();
 }
