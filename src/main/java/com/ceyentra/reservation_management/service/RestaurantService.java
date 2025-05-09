@@ -9,4 +9,6 @@ public interface RestaurantService {
 
 
     List<RestaurantDTO> getAllRestaurants();
+
+    RestaurantDTO getSpecificRestaurant(int restaurantId);
 }

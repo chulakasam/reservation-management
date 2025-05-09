@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -31,5 +32,13 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<RestaurantDTO> getAllRestaurants() {
         List<Restaurant> restaurantList = restaurantDAO.findAll();
         return mapping.asRestaurantDTOList(restaurantList);
+    }
+
+    @Override
+    public RestaurantDTO getSpecificRestaurant(int restaurantId) {
+        Optional<Restaurant> specific_restaurant = restaurantDAO.findById(restaurantId);
+        return mapping.toRestaurantDTO(specific_restaurant.get());
+
+
     }
 }

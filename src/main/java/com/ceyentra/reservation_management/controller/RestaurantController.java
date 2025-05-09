@@ -26,4 +26,9 @@ public class RestaurantController {
     public List<RestaurantDTO> getRestaurants() {
         return restaurantService.getAllRestaurants();
     }
+
+    @GetMapping("/view/{restaurant_id}")
+    public RestaurantDTO getRestaurant(@PathVariable("restaurant_id") int restaurant_id) {
+        return restaurantService.getSpecificRestaurant(restaurant_id);
+    }
 }
