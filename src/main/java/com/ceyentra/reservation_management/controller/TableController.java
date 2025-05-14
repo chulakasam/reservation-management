@@ -1,7 +1,10 @@
 package com.ceyentra.reservation_management.controller;
 
+import com.ceyentra.reservation_management.dto.TableDTO;
 import com.ceyentra.reservation_management.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +19,9 @@ public class TableController {
     }
 
 
+    @PostMapping("/add")
+    public void AddNewTable(@RequestBody TableDTO tableDTO){
+        tableService.saveRestaurantTable(tableDTO);
+    }
 
 }
