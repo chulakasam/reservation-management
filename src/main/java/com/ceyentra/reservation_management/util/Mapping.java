@@ -36,13 +36,17 @@ public class Mapping {
     public Restaurant_table toRestaurantTableEntity(TableDTO tableDTO){
         return modelMapper.map(tableDTO, Restaurant_table.class);
     }
+
     public TableDTO toRestaurantTableDTO(Restaurant_table restaurant_tableEntity){
         return modelMapper.map(restaurant_tableEntity, TableDTO.class);
     }
-    public List<TableDTO> asRestaurantTableDTOList(List<Restaurant_table> restaurant_tablesList){return modelMapper.map(restaurant_tablesList, new TypeToken<List<TableDTO>>(){}.getType());
+
+    public List<TableDTO> asRestaurantTableDTOList(List<Restaurant_table> restaurant_tablesList){
+        return modelMapper.map(restaurant_tablesList, new TypeToken<List<TableDTO>>(){}.getType());
     }
+
     public List<Restaurant_table> toRestaurantTableEntityList(List<TableDTO> tableDTOList) {
-        return modelMapper.map(tableDTOList,new TypeToken<List<Restaurant_table>>() {}.getType());
+        return modelMapper.map(tableDTOList, new TypeToken<List<Restaurant_table>>() {}.getType());
     }
 
 
