@@ -19,6 +19,13 @@ public class Restaurant_table {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
 
     public int getTable_id() {
         return table_id;

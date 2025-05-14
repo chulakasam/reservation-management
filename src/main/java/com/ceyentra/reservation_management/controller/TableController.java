@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/table")
 public class TableController {
     private TableService tableService;
+
     @Autowired
     public TableController(TableService tableService) {
         this.tableService = tableService;
     }
+
 
 
 }
