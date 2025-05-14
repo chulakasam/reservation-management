@@ -53,5 +53,18 @@ public class CustomerServiceImpl implements CustomerService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found with ID: " + customer_id));
     }
 
+    @Override
+    public void updateCustomer(CustomerDTO customerDTO,int customer_id) {
+        Optional<Customer> temp_customer = customerDAO.findById(customer_id);
+        if (temp_customer.isPresent()) {
+            temp_customer.get().setFirst_name(customerDTO.getFirst_name());
+            temp_customer.get().setLast_name(customerDTO.getLast_name());
+            temp_customer.get().setEmail(customerDTO.getEmail());
+            temp_customer.get().setPhone_number(customerDTO.getPhone_number());
+            temp_customer.get().setRegistration_date(customerDTO.getRegistration_date());
+            customerDAO.save(temp_customer.get());
+        }
+    }
+
 
 }

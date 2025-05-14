@@ -20,7 +20,6 @@ public class CustomerController {
     @PostMapping("/add")
     public void addCustomer(@RequestBody CustomerDTO customerDTO){
         customerService.saveCustomer(customerDTO);
-
     }
 
     @GetMapping("/view")
@@ -33,6 +32,10 @@ public class CustomerController {
         return customerService.viewSpecificCustomer(customer_id);
     }
 
+    @PutMapping("/update/{customer_id}")
+    public void updateCustomer(@RequestBody CustomerDTO customerDTO, @PathVariable("customer_id") int customer_id){
+        customerService.updateCustomer(customerDTO,customer_id);
+    }
 
 
 }

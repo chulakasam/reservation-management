@@ -11,5 +11,7 @@ public interface CustomerService {
     List<CustomerDTO> viewAllCustomers();
 
     CustomerDTO viewSpecificCustomer(int customer_id);
+
+    void updateCustomer(CustomerDTO customerDTO,int customer_id);
 }
 
