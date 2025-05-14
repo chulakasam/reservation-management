@@ -14,5 +14,6 @@ public interface TableService {
 
     void updateTable(int tableId, TableDTO tableDTO);
 
+    void deleteTable(int tableId);
 
 }

@@ -56,7 +56,13 @@ public class TableServiceImpl implements TableService {
         }
     }
 
-
+    @Override
+    public void deleteTable(int tableId) {
+        Optional<Restaurant_table> specific_table = tableDAO.findById(tableId);
+        if (specific_table.isPresent()) {
+            tableDAO.deleteById(tableId);
+        }
+    }
 
 
 }

@@ -38,4 +38,9 @@ public class TableController {
     public void updateTable(@PathVariable int table_id, @RequestBody TableDTO tableDTO){
         tableService.updateTable(table_id,tableDTO);
     }
+
+    @DeleteMapping("/delete/{table_id}")
+    public void deleteTable(@PathVariable int table_id){
+        tableService.deleteTable(table_id);
+    }
 }
