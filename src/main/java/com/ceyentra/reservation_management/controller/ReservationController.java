@@ -4,6 +4,7 @@ import com.ceyentra.reservation_management.dto.ReservationDTO;
 import com.ceyentra.reservation_management.entity.Reservation;
 import com.ceyentra.reservation_management.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,14 @@ public class ReservationController {
     }
 
     @PostMapping("/add")
-    public void createNewReservation(@RequestBody ReservationDTO reservationDTO) {
-
-        reservationService.saveNewReservation(reservationDTO);
+    public ResponseEntity<String> createNewReservation(@RequestBody ReservationDTO reservationDTO) {
+        try {
+            reservationService.saveNewReservation(reservationDTO);
+            return ResponseEntity.ok("Reservation created successfully.");
+        } catch (RuntimeException e) {
+            // Custom error handling can be added here
+            return ResponseEntity.status(400).body("Error creating reservation: " + e.getMessage());
+        }
     }
-
 
 }
