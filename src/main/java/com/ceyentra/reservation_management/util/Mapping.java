@@ -1,7 +1,9 @@
 package com.ceyentra.reservation_management.util;
 
+import com.ceyentra.reservation_management.dto.CustomerDTO;
 import com.ceyentra.reservation_management.dto.RestaurantDTO;
 import com.ceyentra.reservation_management.dto.TableDTO;
+import com.ceyentra.reservation_management.entity.Customer;
 import com.ceyentra.reservation_management.entity.Restaurant;
 import com.ceyentra.reservation_management.entity.Restaurant_table;
 import org.modelmapper.ModelMapper;
@@ -49,6 +51,23 @@ public class Mapping {
         return modelMapper.map(tableDTOList, new TypeToken<List<Restaurant_table>>() {}.getType());
     }
 
+//     ------------ customer table ----------------
+
+    public Customer toCustomerEntity(TableDTO tableDTO){
+        return modelMapper.map(tableDTO, Customer.class);
+    }
+
+    public CustomerDTO toCustomerDTO(Customer customerEntity){
+        return modelMapper.map(customerEntity, CustomerDTO.class);
+    }
+
+    public List<CustomerDTO> asCustomerDTOList(List<Customer> customerList){
+        return modelMapper.map(customerList, new TypeToken<List<CustomerDTO>>(){}.getType());
+    }
+
+    public List<Customer> toCustomerEntityList(List<CustomerDTO> customerDTOList) {
+        return modelMapper.map(customerDTOList, new TypeToken<List<Customer>>() {}.getType());
+    }
 
 
 

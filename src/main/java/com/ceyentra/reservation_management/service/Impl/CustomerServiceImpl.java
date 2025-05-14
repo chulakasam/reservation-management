@@ -1,6 +1,8 @@
-package com.ceyentra.reservation_management.service;
+package com.ceyentra.reservation_management.service.Impl;
 
 import com.ceyentra.reservation_management.dao.CustomerDAO;
+import com.ceyentra.reservation_management.dto.CustomerDTO;
+import com.ceyentra.reservation_management.service.CustomerService;
 import com.ceyentra.reservation_management.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,4 +19,8 @@ public class CustomerServiceImpl implements CustomerService {
         this.mapping = mapping;
     }
 
+    @Override
+    public void saveCustomer(CustomerDTO customerDTO) {
+
+    }
 }

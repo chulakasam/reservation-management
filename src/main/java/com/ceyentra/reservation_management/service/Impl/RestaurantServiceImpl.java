@@ -1,10 +1,10 @@
-package com.ceyentra.reservation_management.service;
+package com.ceyentra.reservation_management.service.Impl;
 
 import com.ceyentra.reservation_management.dao.RestaurantDAO;
 import com.ceyentra.reservation_management.dto.RestaurantDTO;
 import com.ceyentra.reservation_management.entity.Restaurant;
+import com.ceyentra.reservation_management.service.RestaurantService;
 import com.ceyentra.reservation_management.util.Mapping;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
