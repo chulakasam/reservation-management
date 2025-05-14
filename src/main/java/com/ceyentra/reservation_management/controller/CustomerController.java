@@ -37,5 +37,9 @@ public class CustomerController {
         customerService.updateCustomer(customerDTO,customer_id);
     }
 
+    @DeleteMapping("/delete/{customer_id}")
+    public void deleteCustomer(@PathVariable("customer_id") int customer_id){
+        customerService.deleteCustomer(customer_id);
+    }
 
 }

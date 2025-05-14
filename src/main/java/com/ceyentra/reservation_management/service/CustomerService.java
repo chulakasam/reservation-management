@@ -13,5 +13,7 @@ public interface CustomerService {
     CustomerDTO viewSpecificCustomer(int customer_id);
 
     void updateCustomer(CustomerDTO customerDTO,int customer_id);
+
+    void deleteCustomer(int customer_id);
 }
 

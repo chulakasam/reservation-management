@@ -66,5 +66,13 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
+    @Override
+    public void deleteCustomer(int customer_id) {
+        Optional<Customer> selected_customer = customerDAO.findById(customer_id);
+        if (selected_customer.isPresent()) {
+            customerDAO.deleteById(customer_id);
+        }
+    }
+
 
 }
