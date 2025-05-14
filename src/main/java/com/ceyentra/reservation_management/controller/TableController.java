@@ -28,4 +28,9 @@ public class TableController {
     public List<TableDTO> getAllTables(){
         return tableService.getAllTables();
     }
+
+    @GetMapping("/view/{table_id}")
+    public TableDTO getTable(@PathVariable int table_id){
+        return tableService.getSpecificTable(table_id);
+    }
 }

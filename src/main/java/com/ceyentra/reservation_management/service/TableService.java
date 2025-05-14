@@ -10,4 +10,6 @@ public interface TableService {
 
     List<TableDTO> getAllTables();
 
+    TableDTO getSpecificTable(int tableId);
+
 }
