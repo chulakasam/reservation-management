@@ -16,6 +16,7 @@ import com.ceyentra.reservation_management.util.Mapping;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,7 @@ public class AuthenticationServiceIMPL implements AuthenticationService {
     public JWTAuthResponse signIn(SignIn signIn) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signIn.getEmail(),signIn.getPassword()));
         User userEntity=userDao.findByEmail(signIn.getEmail()).orElseThrow(()->new NotFoundException("User Not Found"));
-        var generateToken = jwtService.generateToken(userEntity);
+        var generateToken = jwtService.generateToken( userEntity);
         return JWTAuthResponse.builder().token(generateToken).build();
     }
 
@@ -52,7 +53,7 @@ public class AuthenticationServiceIMPL implements AuthenticationService {
     public JWTAuthResponse refreshToken(String refreshToken) {
         String user =jwtService.extractUserName(refreshToken);
         User findUser =userDao.findByEmail(user).orElseThrow(()-> new NotFoundException("Couldn't find User"));
-        String token =jwtService.refreshToken(findUser);
+        String token =jwtService.refreshToken((UserDetails) findUser);
         return JWTAuthResponse.builder().token(token).build();
     }
     @Override
