@@ -3,6 +3,7 @@ package com.ceyentra.reservation_management.service.Impl;
 import com.ceyentra.reservation_management.dao.UserDAO;
 import com.ceyentra.reservation_management.dto.UserWithKey;
 import com.ceyentra.reservation_management.entity.User;
+import com.ceyentra.reservation_management.exception.UserNotFoundException;
 import com.ceyentra.reservation_management.service.UserService;
 import jakarta.transaction.Transactional;
 
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetailsService userDetailsService() {
         return username ->
-                userDAO.findByEmail(username).orElseThrow(()->new UserNotFoundException("User Name Not Found"));
+                (org.springframework.security.core.userdetails.UserDetails) userDAO.findByEmail(username).orElseThrow(()->new UserNotFoundException("User Name Not Found"));
     }
 
     @Override
