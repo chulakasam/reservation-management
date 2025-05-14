@@ -33,4 +33,9 @@ public class TableController {
     public TableDTO getTable(@PathVariable int table_id){
         return tableService.getSpecificTable(table_id);
     }
+
+    @PutMapping("/update/{table_id}")
+    public void updateTable(@PathVariable int table_id, @RequestBody TableDTO tableDTO){
+        tableService.updateTable(table_id,tableDTO);
+    }
 }

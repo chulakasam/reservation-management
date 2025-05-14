@@ -41,9 +41,22 @@ public class TableServiceImpl implements TableService {
     @Override
     public TableDTO getSpecificTable(int tableId) {
         Optional<Restaurant_table> specificTable = tableDAO.findById(tableId);
-
         return mapping.toRestaurantTableDTO(specificTable.get());
     }
+
+    @Override
+    public void updateTable(int tableId, TableDTO tableDTO) {
+        Optional<Restaurant_table> temp_table = tableDAO.findById(tableId);
+        if (temp_table.isPresent()) {
+            temp_table.get().setTable_number(tableDTO.getTable_number());
+            temp_table.get().setCapacity(tableDTO.getCapacity());
+            temp_table.get().setTable_type(tableDTO.getTable_type());
+            temp_table.get().setRestaurant(tableDTO.getRestaurant());
+            tableDAO.save(temp_table.get());
+        }
+    }
+
+
 
 
 }

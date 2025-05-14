@@ -12,4 +12,7 @@ public interface TableService {
 
     TableDTO getSpecificTable(int tableId);
 
+    void updateTable(int tableId, TableDTO tableDTO);
+
+
 }
