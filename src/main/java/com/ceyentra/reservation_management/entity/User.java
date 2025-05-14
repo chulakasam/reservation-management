@@ -21,13 +21,15 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name = "role")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 50, nullable = false,name = "role")
+
+    private Role role;
     @OneToMany(mappedBy = "user")
     private List<Customer> customers;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Reservation> reservations = new ArrayList<>();
+    private List<Reservation> reservations ;
 
 
     public List<Reservation> getReservations() {
@@ -62,13 +64,6 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public List<Customer> getCustomers() {
         return customers;
@@ -76,5 +71,13 @@ public class User {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
