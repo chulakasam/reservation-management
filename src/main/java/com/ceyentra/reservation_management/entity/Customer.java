@@ -25,6 +25,17 @@ public class Customer {
     private String phone_number;
     @Column(name = "registration_date")
     private Timestamp registration_date;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getCustomer_id() {
         return customer_id;

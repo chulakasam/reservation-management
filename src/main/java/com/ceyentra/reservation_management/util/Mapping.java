@@ -53,8 +53,8 @@ public class Mapping {
 
 //     ------------ customer table ----------------
 
-    public Customer toCustomerEntity(TableDTO tableDTO){
-        return modelMapper.map(tableDTO, Customer.class);
+    public Customer toCustomerEntity(CustomerDTO customerDTO){
+        return modelMapper.map(customerDTO, Customer.class);
     }
 
     public CustomerDTO toCustomerDTO(Customer customerEntity){
