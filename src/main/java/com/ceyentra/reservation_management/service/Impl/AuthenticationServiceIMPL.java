@@ -11,6 +11,7 @@ import com.ceyentra.reservation_management.secure.Response.JWTAuthResponse;
 import com.ceyentra.reservation_management.secure.Security.SignIn;
 import com.ceyentra.reservation_management.secure.Security.SignUp;
 import com.ceyentra.reservation_management.service.AuthenticationService;
+import com.ceyentra.reservation_management.service.JwtService;
 import com.ceyentra.reservation_management.util.Mapping;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
