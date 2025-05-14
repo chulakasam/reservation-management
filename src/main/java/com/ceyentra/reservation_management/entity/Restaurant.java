@@ -1,5 +1,6 @@
 package com.ceyentra.reservation_management.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,7 @@ public class Restaurant {
     private String image_url;
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant",cascade = {CascadeType.DETACH,CascadeType.MERGE,
             CascadeType.REFRESH,CascadeType.PERSIST})
+    @JsonManagedReference
     private List<Restaurant_table> restaurantTables;
 
 

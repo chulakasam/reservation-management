@@ -2,10 +2,13 @@ package com.ceyentra.reservation_management.service;
 
 import com.ceyentra.reservation_management.dao.TableDAO;
 import com.ceyentra.reservation_management.dto.TableDTO;
+import com.ceyentra.reservation_management.entity.Restaurant_table;
 import com.ceyentra.reservation_management.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,7 +31,11 @@ public class TableServiceImpl implements TableService {
         tableDAO.save(mapping.toRestaurantTableEntity(tableDTO));
     }
 
-
+    @Override
+    public List<TableDTO> getAllTables() {
+        List<Restaurant_table> restaurantTableList = tableDAO.findAll();
+        return mapping.asRestaurantTableDTOList(restaurantTableList);
+    }
 
 
 }

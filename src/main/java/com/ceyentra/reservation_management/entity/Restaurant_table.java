@@ -1,5 +1,6 @@
 package com.ceyentra.reservation_management.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,7 @@ public class Restaurant_table {
     private String table_type;
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
+    @JsonBackReference
     private Restaurant restaurant;
 
     public Restaurant getRestaurant() {
