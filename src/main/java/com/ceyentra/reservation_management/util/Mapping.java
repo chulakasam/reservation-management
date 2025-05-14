@@ -1,13 +1,7 @@
 package com.ceyentra.reservation_management.util;
 
-import com.ceyentra.reservation_management.dto.CustomerDTO;
-import com.ceyentra.reservation_management.dto.ReservationDTO;
-import com.ceyentra.reservation_management.dto.RestaurantDTO;
-import com.ceyentra.reservation_management.dto.TableDTO;
-import com.ceyentra.reservation_management.entity.Customer;
-import com.ceyentra.reservation_management.entity.Reservation;
-import com.ceyentra.reservation_management.entity.Restaurant;
-import com.ceyentra.reservation_management.entity.Restaurant_table;
+import com.ceyentra.reservation_management.dto.*;
+import com.ceyentra.reservation_management.entity.*;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +86,16 @@ public class Mapping {
 
 
 
-
+//------------user table -----------------
+public User toUserEntity(UserDto userDTO){
+    return modelMapper.map(userDTO, User.class);
+}
+    public UserDto toUserDTO(User userEntity){
+        return modelMapper.map(userEntity, UserDto.class);
+    }
+    public List<UserDto> asUserDTOList(List<User> userEntities) {
+        return modelMapper.map(userEntities, new TypeToken<List<UserDto>>() {}.getType());
+    }
 
 
 }
