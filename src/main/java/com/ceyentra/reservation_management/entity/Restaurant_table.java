@@ -3,6 +3,9 @@ package com.ceyentra.reservation_management.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "restaurant_table")
 public class Restaurant_table {
@@ -20,6 +23,17 @@ public class Restaurant_table {
     @JoinColumn(name = "restaurant_id")
     @JsonBackReference
     private Restaurant restaurant;
+
+    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations = new ArrayList<>();
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public Restaurant getRestaurant() {
         return restaurant;

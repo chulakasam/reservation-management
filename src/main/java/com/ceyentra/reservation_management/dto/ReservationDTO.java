@@ -9,18 +9,18 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+
 public class ReservationDTO {
 
-    private int reservationId;
-    private int customerId;
-    private int restaurantId;
-    private int tableId;
-    private LocalDateTime reservationDateTime;
-    private int partySize;
+    private int reservation_id;
+    private int customer_id;
+    private int restaurant_id;
+    private int table_id;
+    private LocalDateTime reservation_date_time;
+    private int party_size;
     private String status;
-    private String specialRequests;
-    private Integer userId;
-    private Timestamp creationDateTime;
-    private Timestamp lastModifiedDateTime;
+    private String special_requests;
+    private Integer user_id;
+    private Timestamp creation_date_time;
+    private Timestamp last_modified_date_time;
 }

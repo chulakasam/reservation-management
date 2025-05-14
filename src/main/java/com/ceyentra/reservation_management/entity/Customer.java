@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "customer")
@@ -26,8 +28,19 @@ public class Customer {
     @Column(name = "registration_date")
     private Timestamp registration_date;
     @ManyToOne//nullable true kara find by id eke issue eka fix krnna.
-    @JoinColumn(name = "user_id", nullable = true)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations = new ArrayList<>();
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public User getUser() {
         return user;

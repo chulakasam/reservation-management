@@ -18,7 +18,11 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
 
+    @PostMapping("/add")
+    public void createNewReservation(@RequestBody ReservationDTO reservationDTO) {
 
+        reservationService.saveNewReservation(reservationDTO);
+    }
 
 
 }

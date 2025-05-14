@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,6 +41,16 @@ public class Restaurant {
     @JsonManagedReference
     private List<Restaurant_table> restaurantTables;
 
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations = new ArrayList<>();
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public List<Restaurant_table> getRestaurantTables() {
         return restaurantTables;

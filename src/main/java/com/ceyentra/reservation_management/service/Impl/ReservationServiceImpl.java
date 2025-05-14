@@ -19,5 +19,8 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
 
-
+    @Override
+    public void saveNewReservation(ReservationDTO reservationDTO) {
+            reservationDAO.save(mapping.toReservationEntity(reservationDTO));
+    }
 }
