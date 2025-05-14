@@ -25,8 +25,8 @@ public class Customer {
     private String phone_number;
     @Column(name = "registration_date")
     private Timestamp registration_date;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne//nullable true kara find by id eke issue eka fix krnna.
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     public User getUser() {

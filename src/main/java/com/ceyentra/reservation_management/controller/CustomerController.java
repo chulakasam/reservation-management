@@ -28,7 +28,10 @@ public class CustomerController {
        return customerService.viewAllCustomers();
     }
 
-
+    @GetMapping("/view/{customer_id}")
+    public CustomerDTO viewCustomer(@PathVariable("customer_id") int customer_id){
+        return customerService.viewSpecificCustomer(customer_id);
+    }
 
 
 

@@ -9,5 +9,7 @@ public interface CustomerService {
 
     void saveCustomer(CustomerDTO customerDTO);
     List<CustomerDTO> viewAllCustomers();
+
+    CustomerDTO viewSpecificCustomer(int customer_id);
 }
 

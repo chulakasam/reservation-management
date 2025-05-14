@@ -22,7 +22,7 @@ public class User {
     private String password;
     @Column(name = "role")
     private String role;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     private List<Customer> customers;
 
     public int getUser_id() {
