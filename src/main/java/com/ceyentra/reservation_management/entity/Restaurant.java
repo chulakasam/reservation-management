@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 @Table(name = "restaurant")
@@ -33,6 +34,18 @@ public class Restaurant {
     private String description;
     @Column(name = "image_url")
     private String image_url;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant",cascade = {CascadeType.DETACH,CascadeType.MERGE,
+            CascadeType.REFRESH,CascadeType.PERSIST})
+    private List<Restaurant_table> restaurantTables;
+
+
+    public List<Restaurant_table> getRestaurantTables() {
+        return restaurantTables;
+    }
+
+    public void setRestaurantTables(List<Restaurant_table> restaurantTables) {
+        this.restaurantTables = restaurantTables;
+    }
 
     public String getDescription() {
         return description;
